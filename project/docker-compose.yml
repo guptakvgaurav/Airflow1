@@ -8,6 +8,8 @@ services:
       - POSTGRES_USER=airflow
       - POSTGRES_PASSWORD=airflow
       - POSTGRES_DB=airflow
+    ports:
+      - "5432:5432"
 
   webserver:
     build: ./dockerfiles
@@ -20,6 +22,7 @@ services:
     volumes:
       - ./dags:/usr/local/airflow/dags
       - ./config/airflow.cfg:/opt/local/airflow/airflow.cfg
+      - ./config:/opt/airflow
     ports:
       - "8080:8080"
     command: webserver
