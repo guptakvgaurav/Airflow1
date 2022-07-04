@@ -23,6 +23,8 @@ services:
       - ./dags:/usr/local/airflow/dags
       - ./config/airflow.cfg:/opt/local/airflow/airflow.cfg
       - ./config:/opt/airflow
+      - ./requirements.txt:/requirements.txt
+      - ./data.csv:/data.csv
     ports:
       - "8080:8080"
     command: webserver
